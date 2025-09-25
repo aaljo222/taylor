@@ -1,5 +1,5 @@
-
 import time
+import math
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -70,7 +70,7 @@ x = np.linspace(x_min, x_max, int(num_points))
 fx = f(x)
 
 # --- Build Taylor coefficients up to max_order at 'center' ---
-coeffs = np.array([fderiv(n, center) / np.math.factorial(n) for n in range(max_order + 1)], dtype=float)
+coeffs = np.array([fderiv(n, center) / math.factorial(n) for n in range(max_order + 1)], dtype=float)
 
 def taylor_poly_vals(x, a, coeffs, N):
     # Evaluate T_N(x) = sum_{n=0..N} c_n (x-a)^n
